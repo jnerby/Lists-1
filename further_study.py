@@ -105,11 +105,13 @@ def custom_remove(input_list, value):
         True
 
     """
-    for item in input_list:
-        if item == value:
-            del item
-            break
+    counter = 0 
 
+    for item in input_list:
+        counter += 1
+        if item == value:
+            del input_list[counter-1]
+            break
 
 def custom_pop(input_list):
     """Remove the last item in the list and returns it.
