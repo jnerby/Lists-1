@@ -1,5 +1,6 @@
 """Custom implementations of several standard Python list methods."""
 
+from typing import Counter
 from list_operations import *
 
 
@@ -129,7 +130,9 @@ def custom_pop(input_list):
 
     """
 
-    return None
+    value = input_list[-1]
+    del input_list[-1]
+    return value
 
 
 def custom_index(input_list, value):
@@ -144,9 +147,13 @@ def custom_index(input_list, value):
         1
 
     """
+    counter = 0
 
-    return 0
-
+    for item in input_list:
+        counter += 1
+        if item == value:
+            break 
+        return counter 
 
 def custom_count(input_list, value):
     """Return the number of times value appears in the list.
@@ -160,8 +167,11 @@ def custom_count(input_list, value):
         2
 
     """
-
-    return 0
+    counter = 0
+    for item in input_list:
+        if item == value:
+            counter += 1
+    return counter
 
 
 def custom_reverse(input_list):
