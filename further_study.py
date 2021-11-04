@@ -189,8 +189,25 @@ def custom_reverse(input_list):
         True
 
     """
+    #get length of list, keep adding to it at the end
+    len_list = custom_len(input_list)
 
-    pass
+    # loopint through list and pasting to end of input_list
+    # for i in range(0,len_list):
+    #     value = input_list[len_list-1]
+    #     input_list[len_list:len_list] = [value]
+    #     del input_list[len_list-1]
+
+    # slicing original list
+    # input_list[(len_list/2):]
+
+    
+    # step through list in reverse, -len_list - 1 bc exclusive
+    for i in range(-1, -len_list-1, -1):
+        # add new index to list, assign input_list[i] value
+        input_list[len_list:len_list] = [input_list[i]]
+        # delete the value that was copied in 198
+        del input_list[i-1]
 
 
 def custom_contains(input_list, value):
@@ -209,8 +226,18 @@ def custom_contains(input_list, value):
         True
 
     """
+    status = "false"
+    for item in input_list:
+        if item == value:
+            return True
+    return False
+    #         status = "true"
+    #         break
 
-    return None
+    # if status == "false":
+    #     return False
+    # else:
+    #     return True
 
 
 def custom_equality(some_list, another_list):
@@ -228,9 +255,14 @@ def custom_equality(some_list, another_list):
         False
 
     """
+    if custom_len(some_list) != custom_len(another_list):
+        return False
 
-    return None
-
+    for index in range(custom_len(some_list)):
+        if some_list[index] != another_list[index]:
+            return False
+    
+    return True
 
 # This is the part were we actually run the doctests.
 
