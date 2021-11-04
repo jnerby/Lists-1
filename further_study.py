@@ -46,8 +46,10 @@ def custom_append(input_list, value):
         True
 
     """
+    list_len = custom_len(input_list) + 1
 
-    pass
+    # create one space at end of new_list and assign value as list
+    input_list[list_len:list_len] = [value]
 
 
 def custom_extend(input_list, second_list):
@@ -65,8 +67,9 @@ def custom_extend(input_list, second_list):
         True
 
     """
-
-    pass
+    for item in second_list:
+        list_len = custom_len(input_list) + 1
+        input_list[list_len:list_len] = [item]
 
 
 def custom_insert(input_list, index, value):
@@ -83,8 +86,8 @@ def custom_insert(input_list, index, value):
         True
 
     """
-
-    pass
+    input_list[index:index] = [value]
+    
 
 
 def custom_remove(input_list, value):
